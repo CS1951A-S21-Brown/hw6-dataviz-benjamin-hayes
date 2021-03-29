@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="utf-8">
@@ -14,15 +14,123 @@
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
+        <div class="center">
+            <h3>View Top Games and Genres by Region</h3>
+            <button type="button" class="btn btn-info" style="background-color:#52b69a;" onclick="setBarData('Global_Sales');setPieRegionData('Global_Sales');">Global Sales</button>
+            <button type="button" class="btn btn-info" style="background-color:#52b69a;" onclick="setBarData('NA_Sales');setPieRegionData('NA_Sales');">NA Sales</button>
+            <button type="button" class="btn btn-info" style="background-color:#52b69a;" onclick="setBarData('EU_Sales');setPieRegionData('EU_Sales');">EU Sales</button>
+            <button type="button" class="btn btn-info" style="background-color:#52b69a;" onclick="setBarData('JP_Sales');setPieRegionData('JP_Sales');">JP Sales</button>
+            <button type="button" class="btn btn-info" style="background-color:#52b69a;" onclick="setBarData('Other_Sales');setPieRegionData('Other_Sales');">Other Sales</button>
+            <hr>
+            <div id="bargraph"></div>
+            <p style="font-size: 12px; text-align: center; padding-top: 10px;">
+                *Displays the top 10 game titles by total sales. You can change which region you would like to sort 
+                the sales data by using the buttons at the top of the page.
+            </p>
+        </div>
+        <hr>
         <div class="col-lg-6">
-            <div id="graph1"></div>
-            <div id="graph2"></div><br/>
+            <h3>Genre Pie Chart</h3>
+            <p style="font-size: 12px; text-align: center; padding-top: 10px;">
+                See which genres account for what portion of the sales in a particular region. Again, <br>you can control which regional data you want to view using the buttons at the top of the screen.
+            </p>
+            <div id="piechart"></div><br/>
         </div>
         <div class="col-lg-6">
-            <div id="graph3"></div>
+            <h3>Best Developers by Genre Globally</h3>
+            <p style="font-size: 12px; text-align: center; padding-top: 10px;">
+                See which publishers have been most successful in each genre! Simply type in one of the following genres and Submit: 
+                <br>
+                Action, Adventure, Fighting, Misc, Platform, Puzzle, Racing, Role-Playing, Shooter, Simulation, Sports, or Strategy
+            </p>
+            <div class=controls>
+                <input type="text" id="attrInput" class="form-control" placeholder="Genre" aria-label="AYOOO" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button style="border-top-left-radius: 0;background-color:#52b69a;" class="btn btn-primary" type="button" onclick="setAttr()">Submit</button>
+                </div>
+            </div>
+            <p style="font-size: 12px; text-align: center; padding-top: 10px;">Note: if no pie chart shows up, make sure you typed in a valid genre!</p>
+            <div id="devchart"></div>
+            <p style="font-size: 10px; text-align: center; padding-top: 10px;">*Other Publishers refers to all publishers not in the top 10 making up the <br>remaining sales for the particular genre.</p>
+        </div>
+        <hr>
+        <div class="col-lg-6" style="text-align: left; width: 80%; padding-left: 10%;">
+            <h3 style="text-align: center;">Note About the Data</h3>
+            <p>
+                The data for this page was gathered from <a href="https://www.kaggle.com/gregorut/videogamesales"> Video Games Sales</a> on Kaggle. When cleaning the data, 
+                I chose to keep the game titles separated by platform. That is, the same game, Call of Duty: Black Ops for example, remains as separate entries for Xbox, 
+                Play Station, etc. Thus if it appears on the Top 10 list of games for a particular region, that will only include the copies sold for a particular console,
+                not the game accross all platforms.
+            </p>
+            <hr>
+            <h3 style="text-align: center;">Written Questions</h3>
+            <ol>
+                <li>
+                    My dashboard is able to answer the questions about videogame sales using bargraphs and pie charts. The buttons 
+                    at the top of the page allow the user to select which region they would like to view data from: either global 
+                    sales data, or data from individual regions like North America, Europe, Japan, and other. Depending of which 
+                    region the user has selected, the first bargraph presents the top 10 games by sales volume in that particular
+                    region. Below that, the pie chart then shows the portion of sales in that region which are of particular genres.
+                    This allows my boss/the user to determine which genres are the most popular in different regions. Finally, my 
+                    pie chart allows the user to input a particular genre, and the pie chart switches to show which publishers 
+                    are the best for the input genre.
+                </li><br><br>
+                <li>
+                    The first reason D3 helpful was because it was pretty straight forward to make dynamic graphs. Setting up a 
+                    setData function allowed me to pretty easily change between regions or genres all on the same graph. 
+                    <br><br>
+                    Another reason D3 was helpful was that the mouseover feature allowed you to make less cluttered graphs.
+                    Instead of having to put all the information of the screen at once, it was much cleaner to have the 
+                    relavent information only show up when the user selected it. I think this helps with accessibility and
+                    readability as the viewer can see only the necessary data at first, then choose to see more by hovering.
+                    <br><br>
+                    Finally, D3 is extrememly powerful and gives you creative and analytical control. It has a ton of different graph 
+                    types you can make, some of which are very cool. The map for example, is a graph type I wish I would have had time 
+                    to try to implement. It's an extremely unique way to show data, and with the tools of D3, is less complex than I 
+                    thought it would have been. That is something I will probably play with outside the scope of this class.
+                </li><br><br>
+                <li>
+                    For me personally, I think D3 wouldn't be the best tool for creating a visualization because of how the
+                    programmer has to manually style everything. While its very robust with all the options and customizability, I think 
+                    there are other tools which streamline the process a little more and might easier to work with.
+                    <br><br>
+                    Further, in order to make really visually appealing webpages, you have to be really handy with HTML and know how to 
+                    create elements within your javascript file and D3 elements, which I am not. I struggled a bit with creating the HTML elements for
+                    the mouseover elements and couldn't quite get them how I wanted.
+                    <br><br>
+                    <!-- Finally, _____ -->
+                </li><br><br>
+                <li>
+                    I think my dashboard is accessible to red/green color blind people, which is the most common type of color blindness. 
+                    When picking my color scheme, I wanted something that would be visually appealing for the normal eye, but also for red/
+                    green color blindness. Thus, I chose a Navy and Yellow color scheme. However, this would make it less accessible for the more rare
+                    type of color blindness blue/yellow.
+                    <br><br>
+                    One action I took to make my webpage more accessible was adding text for each graph breifly explaining what the graph 
+                    shows, and how you can change the data shown. For example, in my bar graph and my Genre Pie Chart, I explained that you 
+                    could change which region you wanted the data to describe by using the buttons at the top of the page. As the article 
+                    "Why Accessibility Is at the Heart of Data Visualization" explained, I wanted to provide a short summary such that there
+                    was no confusion of what my graph showed, or how to use it. I wanted to make sure that the user didn't have to figure out 
+                    how it worked by themselves, and instead, save some time and clearly explain it for them.
+                    <br><br>
+                    Another action I took was to include a section after my graphs explicitly letting the viewer know where I got my data, and
+                    how it was processed. I did this so that I was clear how I might be manipulating or employing the data so that any confusion 
+                    over what data is actually presented is minimized.
+                </li><br><br>
+                <li>
+                    One thing I think I could have done better would be choosing a color scheme with more contrast, as that would make it easier
+                    for color blind people of all types to access my visual data. Additionally, for blind people who use screen readers, I'm sure my HTML layout
+                    could have been more optimal/easier for a screen reader to navigate correctly. When writing the HTML for my dashboard, I was
+                    making it as I went and threw elements I thought I needed kind of randomly. I think I could have made a better, more 
+                    efficient HTML doc if I had planned out what I wanted to do more, instead of deciding as I went through the project.
+                </li>
+            </ol>
         </div>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="bargraph.js"></script>
+    <script type="text/javascript" src="piechart.js"></script>
+    <script type="text/javascript" src="devchart.js"></script>
 </body>
 </html>

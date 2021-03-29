@@ -4,9 +4,67 @@
 }
 
 .header > h3, h5 {
-    margin: 0;
+    /* margin: 0; */
+    margin:0 auto;
+    margin-left: 50px;
     padding-top: 20px;
     text-align: center;
 }
 
+#attrInput {
+    width: 100px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 /* Include any custom CSS styling here! */
+svg {
+    display: block;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.tooltip {
+    position: absolute;
+    font-size: 12px;
+    min-width: 100px;
+    padding: 10px;
+    background: rgb(177, 177, 177);
+    width:  auto;
+    height: auto;
+}
+
+.legend {
+    font-size: 12px;
+}
+
+.center {
+    text-align: center;
+}
+
+rect {
+    stroke-width: 2;
+}
+
+#attrInput {
+    width: 100px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+.col-lg-6 {
+    padding: 0;
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
