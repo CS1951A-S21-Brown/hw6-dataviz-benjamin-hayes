@@ -22,8 +22,6 @@ let tooltip_dev = d3.select("#devchart")     // HINT: div id for div containing 
 function setDevData(attr) {
     d3.csv(FILEPATH).then(function(data) {
 
-        console.log(attr)
-
         //remove previous pie chart, title, and legend
         d3.select("#devchart").selectAll("path").remove()
         d3.select("#devchart").selectAll("text").remove()

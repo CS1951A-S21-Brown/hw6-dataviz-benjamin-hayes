@@ -48,11 +48,8 @@ function setBarData(attr) {
             data = cleanBarData(data, function(x,y) {return parseFloat(y[attr]) - parseFloat(x[attr]); }, NUM_EXAMPLES);
         };
 
-        // for (var i=0; i < data.length; i++) {
-        //     console.log(data[i])
-        // }
-
-        x.domain([0, d3.max(data, function(d) { return d[attr]; })]);
+        //set domain for the x axis of the bargraph
+        x.domain([0, d3.max(data, function(d) { return parseFloat(d[attr]); })]);
 
         y.domain(data.map(function(d) { return d['Name']; }));
 

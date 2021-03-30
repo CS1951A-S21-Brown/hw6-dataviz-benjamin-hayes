@@ -28,7 +28,7 @@ function setPieRegionData(attr) {
 
         data = filterPieData(data, attr);
         
-        console.log(data)
+        // console.log(data)
 
         var NUM_GENRES = Object.keys(data).length
 
